@@ -13,6 +13,7 @@ function update(){
  $('#balance').textContent=state.balance;$('#account').textContent=state.logged?'デモユーザー':'デモログイン';
  document.querySelectorAll('[data-preset]').forEach(b=>{const on=b.dataset.preset===state.scene;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
  document.querySelectorAll('[data-ratio]').forEach(b=>{const on=b.dataset.ratio===state.ratio;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+ const production=$('#studio-production');production.href='https://collart.ai/ja/ai-image/'+(state.scene==='illustration'?'text-to-image':'image-to-image')+'?fromapp=eddie';production.dataset.useCase=state.scene;
  const [w,h]=state.ratio.split(':').map(Number);$('#preview').style.aspectRatio=`${w}/${h}`;
  $('#preview').alt=state.own?'追加した画像のデモプレビュー':currentCase().label+'の参考作例';
  document.querySelectorAll('#studio button,#studio textarea,#pay button,#login button,.review-tools button').forEach(b=>b.disabled=locked());
@@ -64,3 +65,12 @@ $('#reset').onclick=()=>{if(locked())return;sessionVersion++;dialogs.forEach(id=
 dialogs.forEach(id=>{const dialog=$('#'+id);dialog.addEventListener('cancel',e=>{if(locked()){e.preventDefault();toast('処理が終わるまでお待ちください。');}});dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close(id);});});
 const seen=new Set();if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting&&!seen.has(e.target)){seen.add(e.target);const id=e.target.querySelector('[data-scene]').dataset.scene;track('usecase_impression',{use_case:id,asset_id:id+'_v3'});}}),{threshold:.5});document.querySelectorAll('.case-card').forEach(c=>observer.observe(c));}
 update();track('landing_view');
+
+// Conversion hooks: no analytics service or personal input is sent by this page.
+function growthEvent(event,extra={}){const data={event,source_page:'jp_product',placement:extra.placement||'unknown',use_case:extra.use_case||'general',simulated:false};window.dataLayer=window.dataLayer||[];window.dataLayer.push(data);window.dispatchEvent(new CustomEvent('collart:conversion',{detail:data}));}
+async function copyInput(value,useCase,placement){try{await navigator.clipboard.writeText(value);toast('入力内容をコピーしました。正式サービスで貼り付けてください。');growthEvent('prompt_copy_succeeded',{use_case:useCase,placement});}catch{toast('コピーできませんでした。入力例を開いて、テキストを選択してコピーしてください。');if(placement==='case')document.querySelector('#case-'+useCase+' details').open=true;else{$('#prompt').focus();$('#prompt').select();}}}
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>copyInput(useCases.find(c=>c.id===b.dataset.copy).prompt,b.dataset.copy,'case')));
+$('#copy-draft').addEventListener('click',()=>copyInput($('#prompt').value,state.scene,'studio'));
+document.querySelectorAll('[data-outbound]').forEach(a=>{const report=()=>growthEvent(a.href.includes('plans-pricing')?'pricing_outbound_clicked':'creation_outbound_clicked',{use_case:a.dataset.useCase||'general',placement:a.dataset.outbound});a.addEventListener('click',report);a.addEventListener('auxclick',e=>{if(e.button===1)report();});});
+// In-page guide links reveal their target even after filtering the gallery.
+document.querySelectorAll('a[href^="#case-"]').forEach(a=>a.addEventListener('click',()=>document.querySelector('[data-filter="all"]').click()));
