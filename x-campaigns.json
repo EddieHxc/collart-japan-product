@@ -1,0 +1,31 @@
+{
+  "account": "https://x.com/MiaAnimeAI",
+  "campaign": "jp_product_202611",
+  "attribution": "Current tagged landing-page visit only; no cross-visit or paid-order attribution. Visitors must consent. Re-shares retain the same content ID.",
+  "posts": [
+    {
+      "content_id": "x_20261123_shop_01",
+      "topic": "店铺插画：与现有 AI 插画教程内容衔接",
+      "url": "https://collart-japan-product-prototype.orangeslug27.chatgpt.site/?fromapp=eddie&utm_source=twitter&utm_medium=social&utm_campaign=jp_product_202611&utm_content=x_20261123_shop_01#case-illustration",
+      "asset": "dist/assets/illustration.png",
+      "text": "【PR】AIイラストを、お店の発信にも。\n「焼きたてのパン、紙の質感、青い輪郭線、文字なし」\n用途別の入力例をまとめました。コピーしてCollartで試せます。\n※画像は外部AIの参考作例。Collartの生成結果ではありません。",
+      "status": "prepared"
+    },
+    {
+      "content_id": "x_20261125_cafe_02",
+      "topic": "咖啡店新菜单：食感与文字留白",
+      "url": "https://collart-japan-product-prototype.orangeslug27.chatgpt.site/?fromapp=eddie&utm_source=twitter&utm_medium=social&utm_campaign=jp_product_202611&utm_content=x_20261125_cafe_02#case-cafe",
+      "asset": "dist/assets/cafe.png",
+      "text": "【PR】新メニューの告知画像、文字を置く場所も先に考える。\n入力例は「りんごタルト、食感が伝わる光、上部に余白、文字なし」。\n用途別の入力例をコピーしてCollartへ。\n※画像は外部AIの参考作例。実際の商品と照合を。",
+      "status": "prepared"
+    },
+    {
+      "content_id": "x_20261127_gift_03",
+      "topic": "冬季礼品：包装和内容物展示",
+      "url": "https://collart-japan-product-prototype.orangeslug27.chatgpt.site/?fromapp=eddie&utm_source=twitter&utm_medium=social&utm_campaign=jp_product_202611&utm_content=x_20261127_gift_03#case-gift",
+      "asset": "dist/assets/gift.png",
+      "text": "【PR】冬のギフト紹介は、箱だけでなく中身も見せたい。\n「箱を開けた俯瞰構図、包装と中身、控えめな冬の演出、文字なし」\n入力例をコピーしてCollartで試せます。\n※画像は外部AIの参考作例。内容・数量は実物と照合を。",
+      "status": "prepared"
+    }
+  ]
+}

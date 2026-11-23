@@ -1,0 +1,45 @@
+Collart X 渠道统计与发布记录（2026-11-23）
+
+账号：https://x.com/MiaAnimeAI
+免费 GA4 探索报表（需登录有权限的 Google 账号）：
+https://analytics.google.com/analytics/web/#/analysis/a417282781p565577423/edit/bF_xBZOHRFynomaOQRXWoA
+报表：X 内容效果｜访问・复制・创作跳转
+两个标签：各内容・全国家 / 各内容・日本用户（国家 Japan）
+默认日期：本周至今天。跨周比较时请改日期覆盖完整发布期。
+
+每行 content_id 对应一条内容；事件列同时显示用户总数与事件数。
+jp_landing_view：允许统计后记录的落地页访问；人数为 GA 去重用户，次数不是会话数。
+prompt_copy_succeeded：页面复制提示词成功。
+creation_outbound_clicked：点击前往 Collart 创作链接，不代表已成功到达、生成或付费。
+复制率 = 同一编号复制用户数 / 同一编号访问用户数。
+创作跳转率 = 同一编号跳转用户数 / 同一编号访问用户数。
+这些是期间行为比例，不是严格按顺序的漏斗；跨设备等会影响去重。
+
+01 店铺插画（已发布）：x_20261123_shop_01
+帖子：https://x.com/MiaAnimeAI/status/2124753252948508900
+分享链接：https://collart-japan-product-prototype.orangeslug27.chatgpt.site/?fromapp=eddie&utm_source=twitter&utm_medium=social&utm_campaign=jp_product_202611&utm_content=x_20261123_shop_01#case-illustration
+
+02 咖啡新菜单（X 预约队列已确认）：x_20261125_cafe_02
+预约：2026-11-25 中国19:00 / 日本20:00
+分享链接：https://collart-japan-product-prototype.orangeslug27.chatgpt.site/?fromapp=eddie&utm_source=twitter&utm_medium=social&utm_campaign=jp_product_202611&utm_content=x_20261125_cafe_02#case-cafe
+
+03 冬季礼品（X 预约队列已确认）：x_20261127_gift_03
+预约：2026-11-27 中国19:00 / 日本20:00
+分享链接：https://collart-japan-product-prototype.orangeslug27.chatgpt.site/?fromapp=eddie&utm_source=twitter&utm_medium=social&utm_campaign=jp_product_202611&utm_content=x_20261127_gift_03#case-gift
+
+三条均标注 PR 和外部 AI 参考作例，并添加图片替代文本；不冒充 Collart 实际生成结果。
+排程时间用于本轮试验，不是已验证的最佳时段。
+x-campaigns.json 保留发布前内容计划；实际发布状态以本记录和 X 队列为准。
+
+归因边界：
+仅登记的 UTM 组合有效；fromapp=eddie 单独不能区分帖子。
+复制/转发同一个链接仍归到同一内容编号，不证明一定来自原帖点击。
+仅统计同意 Analytics 的访问；拒绝或拦截统计会缺失。
+只标记当前带参页面访问，不跨次保存内容编号。
+正式报表筛选 content_id 以 x_ 开头，排除 qa_channel_check 和 unattributed。
+新编号需在 analytics.js 白名单中登记并发布，不能随意改链接里的编号。
+Google 搜索流量请在获客报告/已连接的 Search Console 查看，不给站内链接添加 X 参数。
+真实生成、订单与付费仍需 Collart 主站埋点及跨域配置；本次没有接入这些数据。
+探索报表有处理延迟，新建维度不回填此前数据；实时报告用于检查是否收到事件。
+
+代码验证：同意前不发送、撤回停止发送、三个事件编号一致、参数白名单与无效标签回退测试通过。
