@@ -3,10 +3,10 @@ Collart Japan growth analytics — implementation status
 GA4 measurement ID: G-7CR420M9JT. Account 417282781; property 565577423; web stream 16395578416. Standard free account created for this personal test. analytics-config.js enables consent-gated collection. Deployment and live receipt must be verified separately.
 
 Free services: standard GA4 + existing Search Console.
-Reporting timezone: Asia/Tokyo. Currency: JPY. Do not enable Google Signals or advertising features for this test. Disable enhanced measurement of forms/site search to avoid collecting prompt input; page_view is sent manually after analytics consent.
+Reporting timezone: Asia/Tokyo. Currency: JPY. Do not enable Google Signals or advertising features for this test. Disable enhanced measurement of forms/site search to avoid collecting prompt input; page_view is sent by the single gtag config after analytics consent; do not also send a manual page_view.
 
 Landing events implemented: jp_landing_view, prompt_copy_succeeded, creation_outbound_clicked, pricing_outbound_clicked.
-Register event-scoped custom dimensions: source_page, placement, use_case.
+Registered event-scoped custom dimensions: source_page, placement, use_case.
 Country filter: Country = Japan (GA geolocation, not interface language). Acquisition filter: Session default channel group = Organic Search. Google-only analysis: Session source = google, Session medium = organic. Country is estimated location, not nationality.
 
 Use two funnels: (1) closed funnel jp_landing_view > creation_outbound_clicked; (2) closed assisted funnel jp_landing_view > prompt_copy_succeeded > creation_outbound_clicked. Copying is optional, so the second funnel is not the only conversion path. Use users, indirect following steps, 30-minute max between these landing steps. Session conversion rates must be computed with session-scoped data, not event counts.
@@ -21,3 +21,5 @@ Once main site is connected, build closed funnel jp_landing_view > creation_outb
 Search Console: country Japan, search type Web, examine query/page impressions, clicks, CTR and average position. Search queries are aggregate; do not promise keyword-to-individual-order joins. Low volume/anonymized queries and consent/ad-blocking mean GA and Search Console counts differ.
 
 QA: deny => no gtag network script; accept => page_view + jp_landing_view once; copy => only approved use_case and placement, never prompt text; outbound => destination-specific event once; demo checkout => no purchase; reload => consent persists; withdraw => application event dispatch stops. Validate GA DebugView/Realtime and confirm real network delivery before claiming enabled.
+
+Verified 2026-11-23: production GA4 realtime received jp_landing_view, prompt_copy_succeeded and creation_outbound_clicked from QA; these are test traffic, not evidence of Japanese customer demand. Search Console link created successfully. Main-site generation/payment are NOT connected.

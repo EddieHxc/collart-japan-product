@@ -18,10 +18,9 @@
    gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
    gtag('consent','update',{analytics_storage:'granted'});
    gtag('js',new Date());
-   gtag('config',config.measurementId,{send_page_view:false,page_location:page,page_referrer:cleanRef(),allow_google_signals:false,allow_ad_personalization_signals:false});
+   gtag('config',config.measurementId,{send_page_view:true,page_location:page,page_referrer:cleanRef(),allow_google_signals:false,allow_ad_personalization_signals:false});
    const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+config.measurementId;document.head.appendChild(script);loaded=true;
   }else gtag('consent','update',{analytics_storage:'granted'});
-  gtag('event','page_view',{send_to:config.measurementId,page_location:page,page_title:document.title,page_referrer:cleanRef()});
   gtag('event','jp_landing_view',{send_to:config.measurementId,source_page:'jp_product'});
  }
  function stop(){active=false;window['ga-disable-'+config.measurementId]=true;if(loaded)gtag('consent','update',{analytics_storage:'denied'});}
