@@ -1,0 +1,13 @@
+/* Captions remain readable and outside the image, without changing artwork cropping. */
+figure.case-art{margin:0;overflow:visible;border-radius:0;aspect-ratio:auto}
+.case-visual{position:relative;aspect-ratio:1;overflow:hidden}
+.case-visual img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+.case-art .image-caption{position:relative;inset:auto;display:block;background:#f7f5fa;color:#393241;padding:16px 20px;font-size:14px;line-height:1.75;text-align:left;letter-spacing:normal}
+.image-caption span{display:block;margin-top:6px;color:#61556e;font-size:13px}
+.case-tutorial{border-top:1px solid #e5deef;padding-top:14px;margin-top:16px}
+.case-tutorial summary{font-weight:650;line-height:1.65;font-size:16px;cursor:pointer}
+.case-tutorial ol{padding-left:1.5em;margin:14px 0 0}
+.case-tutorial li{font-size:16px;line-height:1.85;margin:0 0 12px;padding-left:4px}
+.creation-hint{font-size:14px!important;line-height:1.8;color:#61556e;margin:12px 0 0}
+.case-body h3{line-height:1.55}
+.style-grid{align-items:start}.case-card{height:auto}

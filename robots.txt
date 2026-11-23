@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://collart-japan-product-prototype.orangeslug27.chatgpt.site/sitemap.xml
+Sitemap: https://collart-japan-product-prototype.orangeslug27.chatgpt.site/image-sitemap.xml
