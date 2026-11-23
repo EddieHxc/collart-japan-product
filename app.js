@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-const defaults=()=>({logged:false,balance:60,scene:'catalog',ratio:'1:1',source:'assets/catalog.png',own:false,result:null,busy:false,paying:false,fail:false,filename:'collart-catalog-reference.png',drafts:{},fileBusy:false});
+const defaults=()=>({logged:false,balance:60,scene:'catalog',ratio:'1:1',source:'assets/catalog.webp',own:false,result:null,busy:false,paying:false,fail:false,filename:'collart-catalog-reference.webp',drafts:{},fileBusy:false});
 let state=defaults(),sessionVersion=0;
 const dialogs=['studio','login','pay'], events=[];
 const currentCase=()=>useCases.find(c=>c.id===state.scene);
@@ -23,8 +23,8 @@ function resetResult(){state.result=null;$('#result-actions').hidden=true;$('#ne
 function studio({scene=state.scene,sample=false}={}){
  if(locked())return;
  const changed=scene!==state.scene;if($('#studio').open)saveDraft();state.scene=scene;
- if(sample){if(state.source.startsWith('blob:'))URL.revokeObjectURL(state.source);state.own=false;state.source=`assets/${scene}.png`;state.filename=`collart-${scene}-reference.png`;}
- if(!state.own){state.source=`assets/${scene}.png`;state.filename=`collart-${scene}-reference.png`;}
+ if(sample){if(state.source.startsWith('blob:'))URL.revokeObjectURL(state.source);state.own=false;state.source=`assets/${scene}.webp`;state.filename=`collart-${scene}-reference.webp`;}
+ if(!state.own){state.source=`assets/${scene}.webp`;state.filename=`collart-${scene}-reference.webp`;}
  const draft=state.drafts[scene];state.ratio=draft?.ratio||currentCase().ratio;$('#prompt').value=draft?.prompt??currentCase().prompt;
  resetResult();update();show('studio');track('creation_open',{scene_changed:changed});
 }
